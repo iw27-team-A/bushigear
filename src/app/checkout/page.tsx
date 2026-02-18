@@ -65,7 +65,7 @@ export default function CheckoutPage() {
             }));
           }
         }
-      } catch {}
+      } catch { }
     })();
   }, []);
 
@@ -128,7 +128,7 @@ export default function CheckoutPage() {
         const errorData = await res.json();
         throw new Error(
           errorData.error ||
-            copy.errors.session[locale === "jp" ? "jp" : locale]
+          copy.errors.session[locale === "jp" ? "jp" : locale]
         );
       }
 
@@ -214,7 +214,7 @@ export default function CheckoutPage() {
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <div className="flex justify-between items-center">
                 <span className="text-xl font-semibold">{t("total")}:</span>
-                <span className="text-2xl font-bold text-green-600">
+                <span className="text-2xl font-bold">
                   ¥{cart.total.toLocaleString()}
                 </span>
               </div>
@@ -224,16 +224,16 @@ export default function CheckoutPage() {
           <div>
             <h2 className="text-2xl font-semibold mb-6">{t("customerInfo")}</h2>
             <div className="space-y-6">
-              <div className="p-6 border rounded-lg bg-blue-50 border-blue-200">
-                <h3 className="font-semibold text-blue-800 mb-2">
+              <div className="p-6 border rounded-lg bg-red-50 border-red-200">
+                <h3 className="font-semibold text-red-800 mb-2">
                   💳 {securePaymentTitle}
                 </h3>
-                <p className="text-sm text-blue-700">
+                <p className="text-sm text-red-700">
                   {securePaymentLines[0]}
                   <br />
                   {securePaymentLines[1]}
                 </p>
-                <p className="text-sm text-blue-700 mt-2">
+                <p className="text-sm text-red-700 mt-2">
                   <a
                     href="/legal/tokusho"
                     target="_blank"
